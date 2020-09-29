@@ -14,8 +14,8 @@ class HelloWorldService {
 
     executeHelloWorldPathVariableService(name) {
         //console.log('executed service')
-        //let username = 'in28minutes'
-        //let password = 'dummy'
+        //let username = '********'
+        //let password = '******'
 
         //let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
 
