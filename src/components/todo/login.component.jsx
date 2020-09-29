@@ -28,9 +28,20 @@ class LoginComponent extends Component {
         // }
         let username = this.state.username
         let password = this.state.password
-        AuthenticationUtil.executeBasicAuthenticationService(username, password)
-            .then(() => {
-                AuthenticationUtil.registerSuccessfulLogin(username, password);
+        // AuthenticationUtil.executeBasicAuthenticationService(username, password)
+        //     .then(() => {
+        //         AuthenticationUtil.registerSuccessfulLogin(username, password);
+        //         this.props.history.push(`/welcome/${username}`)
+        //     })
+        //     .catch(
+        //         () => {
+        //             this.setState({ hasLoginSuccess: false, loginMessage: 'Login Failed' })
+        //         }
+        //     )
+
+            AuthenticationUtil.executeJwtAuthenticationService(username, password)
+            .then((response) => {
+                AuthenticationUtil.registerSuccessfulLoginForJwt(username, response.data.token);
                 this.props.history.push(`/welcome/${username}`)
             })
             .catch(
@@ -38,7 +49,7 @@ class LoginComponent extends Component {
                     this.setState({ hasLoginSuccess: false, loginMessage: 'Login Failed' })
                 }
             )
-    };
+    }
 
     render() {
         return (

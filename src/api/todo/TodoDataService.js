@@ -1,24 +1,26 @@
 import axios from 'axios';
 
+import {JPA_API_URL} from './constants';
+
 class TodoDataService {
      retrieveAllTodos(name){
-         return axios.get(`http://localhost:8080/todo/${name}/todos`)
+         return axios.get(`${JPA_API_URL}/todo/${name}/todos`)
      }
 
      deleteTodo(name, id){
-         return axios.delete(`http://localhost:8080/todo/${name}/todos/${id}`)
+         return axios.delete(`${JPA_API_URL}/todo/${name}/todos/${id}`)
      }
 
      retrieveTodo(name, id){
-        return axios.get(`http://localhost:8080/todo/${name}/todos/${id}`)
+        return axios.get(`${JPA_API_URL}/todo/${name}/todos/${id}`)
      }
 
      updateTodo(name, id, todo){
-         return axios.put(`http://localhost:8080/todo/${name}/todos/${id}`, todo)
+         return axios.put(`${JPA_API_URL}/todo/${name}/todos/${id}`, todo)
      }
 
      insertTodo(name, todo){
-         return  axios.post(`http://localhost:8080/todo/${name}/todos`, todo)
+         return  axios.post(`${JPA_API_URL}/todo/${name}/todos`, todo)
      }
 
 }
